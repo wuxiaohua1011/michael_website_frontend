@@ -6,7 +6,9 @@ I am a engineer, builder, and DIYer. I like to build things that is fun, challen
 # Currently
 I am a software engineer at TikTok working on Privacy and Security. It is a brand new area that I am exploring and I feel like I am learning a lot everyday. 
 
+
 On my free time, I work on autonomous GoKarts with Berkeley students. It is very interesting to be working on a vehicle from the ground up -- from assembling it to redesign it to drive-by-wire, and then to add sensors, software stack and the whole sh-bam to it. 
+
 
 I have a lot of things in mind that I want to do
 - curating my social media presence -- maybe starting a Youtube channel in all the DIY projects? 
