@@ -17,7 +17,7 @@ const LinkRenderer = ({ ...children }) => <Link {...children} />;
 const Index = () => (
   <Main
     description={"Michael Wu's personal website. Silicon Valley based UC Berkeley graduate, "
-    + 'excited about robots, autonomous vehicles, AR/VR, and blockchain technologies'}
+      + 'excited about robots, autonomous vehicles, AR/VR, and blockchain technologies'}
   >
 
     <article className="post markdown" id="about">

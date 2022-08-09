@@ -12,7 +12,7 @@ const SideBar = () => (
         <img src={`${PUBLIC_URL}/images/me.jpg`} alt="" />
       </Link>
       <header>
-        <h2>Michael D&apos;Angelo</h2>
+        <h2>Michael Wu</h2>
         <p><a href="mailto:wuxiaohua1011@gmail.com">wuxiaohua1011@gmail.com</a></p>
       </header>
     </section>
