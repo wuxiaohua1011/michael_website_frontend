@@ -3,18 +3,23 @@ import axios from 'axios';
 import React from 'react';
 import Main from '../layouts/Main';
 import { fetchToken, setToken } from "../Auth"
+import qs from 'qs'
+import { serverHost, serverPort } from '../configs';
+
 
 class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: "",
-            password: ""
+            password: "",
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearForm = this.clearForm.bind(this);
     }
+
+    
     handleChange(event) {
         const target = event.target;
         const value = target.value;
@@ -28,19 +33,34 @@ class Form extends React.Component {
     handleSubmit(event) {
         event.preventDefault(event);
 
+        const params = qs.stringify({
+            'username': this.state.email,
+            'password': this.state.password
+          });
+          const headers = {
+            'accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded'
+          };
         if ((this.state.email == "") & (this.state.password == "")) {
             // TODO: pop up a warning window here
             console.log("Please input valid username and password")
             return;
         } else {
-            console.log(this.state);
-            axios.post("http://localhost:8000/v2/login/loginhack", {
-                username: this.state.email,
-                password: this.state.password
-            }).then(function (response) {
-                console.log(response.data.token, "response.data.token");
-
-            })
+            axios.post(`http://${serverHost}:${serverPort}/v2/login/`, params, headers).then(
+                result => {
+                    console.log(result);
+                    if (result.status === 200) {
+                      console.log(result.data);
+                      setToken(result.data);
+                    } else {
+                        console.log("Not ok")
+                    }
+                  }).catch(e => {
+                    console.log(e);
+                    if (e.response.status == 401) {
+                        alert("In correct password")
+                    }
+                  });
         }
     }
 
@@ -53,6 +73,7 @@ class Form extends React.Component {
 
     render() {
         return (
+            <div>
             <form
                 className="needs-validation"
                 noValidate
@@ -92,30 +113,31 @@ class Form extends React.Component {
                         </button>
                         <button
                             type="button"
-
                             className="btn btn-secondary float-right col-auto"
-                            onClick={this.clearForm}
-
-                        >
+                            onClick={this.clearForm}>
                             Cancel
                         </button>
                     </div>
                 </div>
-
             </form >
+
+           
+            </div>
         );
     }
 }
 
-const Login = () => (
-    <Main
-        title="Login"
-        description="Secret login page only Michael and approved person can access"
-    >
-        <div className='d-flex justify-content-center flex-nowrap'>
-            <Form />
-        </div>
-    </Main>
-);
+const Login = () => {
+    return (
+        
+        <Main
+            title="Login"
+            description="Secret login page only Michael and approved person can access">
+            <div className='d-flex justify-content-center flex-nowrap'>
+                <Form />  
+            </div>
+        </Main>
+    )
+}
 
 export default Login;
