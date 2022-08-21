@@ -1,8 +1,7 @@
-/* eslint-disable */
 import axios from 'axios';
 import React from 'react';
 import Main from '../layouts/Main';
-import { fetchToken, setToken } from "../Auth"
+import { setToken } from "../Auth"
 import qs from 'qs'
 import { serverHost, serverPort } from '../configs';
 
@@ -43,22 +42,20 @@ class Form extends React.Component {
           };
         if ((this.state.email == "") & (this.state.password == "")) {
             // TODO: pop up a warning window here
-            console.log("Please input valid username and password")
+            alert("Please input email and password")
             return;
         } else {
             axios.post(`http://${serverHost}:${serverPort}/v2/login/`, params, headers).then(
                 result => {
-                    console.log(result);
                     if (result.status === 200) {
-                      console.log(result.data);
                       setToken(result.data);
                     } else {
-                        console.log("Not ok")
+                        alert("Unknown error happened, please try again later or inspect console log for debugging");
+                        console.log("result");
                     }
                   }).catch(e => {
-                    console.log(e);
                     if (e.response.status == 401) {
-                        alert("In correct password")
+                        alert("In correct username or password")
                     }
                   });
         }
@@ -120,8 +117,6 @@ class Form extends React.Component {
                     </div>
                 </div>
             </form >
-
-           
             </div>
         );
     }
