@@ -1,7 +1,8 @@
 /* eslint-disable */
+import axios from 'axios';
 import React from 'react';
 import Main from '../layouts/Main';
-
+import { fetchToken, setToken } from "../Auth"
 
 class Form extends React.Component {
     constructor(props) {
@@ -26,7 +27,21 @@ class Form extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault(event);
-        console.log(this.state);
+
+        if ((this.state.email == "") & (this.state.password == "")) {
+            // TODO: pop up a warning window here
+            console.log("Please input valid username and password")
+            return;
+        } else {
+            console.log(this.state);
+            axios.post("http://localhost:8000/v2/login/loginhack", {
+                username: this.state.email,
+                password: this.state.password
+            }).then(function (response) {
+                console.log(response.data.token, "response.data.token");
+
+            })
+        }
     }
 
     clearForm() {
