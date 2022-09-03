@@ -1,0 +1,14 @@
+[Unit]
+Description=start front end server on load
+
+[Service]
+ExecStart=npm start
+Environment=NODE_PORT=3000
+Type=simple
+User=www-data
+Restart=on-failure
+WorkingDirectory=/var/www/home/michael/Desktop/projects/michael_website/michael_website_frontend
+ExecStart=npm start
+
+[Install]
+WantedBy=multi-user.target
