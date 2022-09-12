@@ -39,7 +39,12 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-snap": "^1.23.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.3",
+    "@types/react": "^18.0.19",
+    "@types/prop-types": "^15.7.5",
+    "@types/scheduler": "^0.16.2"
+
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
