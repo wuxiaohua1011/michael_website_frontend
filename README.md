@@ -56,3 +56,10 @@ To statically export the site without deploying to github pages, delete or disab
 * Template based on [Future Imperfect](https://html5up.net/future-imperfect) by [@ajlkn](https://github.com/ajlkn) for [HTML5 UP](html5up.net).
 * Special thanks to [@typpo](https://github.com/typpo) for tirelessly answering all of my node.js and react questions.
 * [@notrueblood](https://github.com/notrueblood)[<sup>[1]</sup>](https://github.com/mldangelo/personal-site/pull/218) and [@sjhsieh](https://github.com/sjhsieh)[<sup>[2]</sup>](https://github.com/mldangelo/personal-site/issues/168) for keeping my ego in check.
+
+
+
+### To deploy to heroku
+1. Follow tutorial to setup heroku https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
+2. set heroku stack to 20 using `heroku stack:set heroku-20`
+3. run `heroku open`

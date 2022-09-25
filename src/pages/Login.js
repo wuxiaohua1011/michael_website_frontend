@@ -5,7 +5,6 @@ import { setToken } from "../Auth"
 import qs from 'qs'
 import { serverHost, serverPort } from '../configs';
 
-
 class Form extends React.Component {
     constructor(props) {
         super(props);
@@ -127,7 +126,7 @@ const Login = () => {
         
         <Main
             title="Login"
-            description="Secret login page only Michael and approved person can access">
+            description="Login page only Michael and approved person can access">
             <div className='d-flex justify-content-center flex-nowrap'>
                 <Form />  
             </div>

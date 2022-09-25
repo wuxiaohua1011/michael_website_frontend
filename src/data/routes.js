@@ -17,6 +17,10 @@ const routes = [
     path: '/stats',
   },
   {
+    label: 'Gallery',
+    path: '/gallery'
+  },
+  {
     label: 'login',
     path: '/login',
   },
