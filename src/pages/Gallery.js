@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import React, {useState, useCallback, useEffect} from 'react';
 import ImageViewer from "react-simple-image-viewer";
@@ -16,14 +15,17 @@ const PhotoGallery = () => {
         if (isInitialRender) {
           setIsInitialRender(false);
           var new_images = [] 
-          axios.get("http://192.168.1.103:7777/v2/photos/list",{
+          var host = process.env.REACT_APP_SERVER_URL
+          var port = process.env.REACT_APP_SERVER_PORT
+          var url = "http://" + host + ":" + port + "/v2/photos/list";
+          axios.get(url,{
                 headers: {
                 'Access-Control-Allow-Origin': true,
                 },
               }).then(resp => {
                 for (var i = 0; i < resp.data.photos.length; i++) {
                   var image_name = resp.data.photos[i]
-                  var query_path = "http://192.168.1.103:7777/v2/photos/?fname=" + image_name;
+                  var query_path = url + "/v2/photos/?fname=" + image_name;
                   new_images.push(query_path) 
                 }
                 setImages(new_images);
