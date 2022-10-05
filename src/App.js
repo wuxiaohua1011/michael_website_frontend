@@ -16,7 +16,6 @@ const Resume = lazy(() => import('./pages/Resume'));
 const Stats = lazy(() => import('./pages/Stats'));
 const Login = lazy(() => import('./pages/Login'));
 const Gallery = lazy(() => import('./pages/Gallery'));
-
 const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
     <Suspense fallback={<Main />}>

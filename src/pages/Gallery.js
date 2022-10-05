@@ -16,20 +16,21 @@ const PhotoGallery = () => {
           setIsInitialRender(false);
           var new_images = [] 
           var host = process.env.REACT_APP_SERVER_URL
-          var port = process.env.REACT_APP_SERVER_PORT
-          var url = "http://" + host + ":" + port + "/v2/photos/list";
-          axios.get(url,{
+          // var port = process.env.REACT_APP_SERVER_PORT
+          var base_url = "https://" + host;
+          console.log("Base url: "+base_url);
+          axios.get(base_url+"/v2/photos/list",{
                 headers: {
                 'Access-Control-Allow-Origin': true,
                 },
               }).then(resp => {
                 for (var i = 0; i < resp.data.photos.length; i++) {
                   var image_name = resp.data.photos[i]
-                  var query_path = url + "/v2/photos/?fname=" + image_name;
+                  var query_path = base_url + "/v2/photos/?fname=" + image_name;
                   new_images.push(query_path) 
                 }
                 setImages(new_images);
-            });
+              });
         }
     }, [images, isInitialRender])
       
