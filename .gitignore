@@ -1,5 +1,6 @@
 # prefer npm over yarn
 yarn.lock
+package-lock.json
 
 # eslint
 .eslintcache

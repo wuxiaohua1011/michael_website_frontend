@@ -60,6 +60,16 @@ To statically export the site without deploying to github pages, delete or disab
 
 
 ### To deploy to heroku
-1. Follow tutorial to setup heroku https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
-2. set heroku stack to 20 using `heroku stack:set heroku-20`
-3. run `heroku open`
+
+- For first time:
+  1. Follow tutorial to setup heroku https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
+  2. set heroku stack to 20 using `heroku stack:set heroku-20`
+  3. run `heroku open`
+
+
+- To re-deploy/update
+  1. https://help.heroku.com/0KU2EM53/why-is-my-node-js-build-failing-because-of-conflicting-lock-files
+  2. remove package-lock.json `git rm package-lock.json` 
+  3. `git add .` 
+  4. `git commit -m "your msg"`
+  5. `git push heroku main`
