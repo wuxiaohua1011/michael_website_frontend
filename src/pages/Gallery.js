@@ -36,6 +36,7 @@ const PhotoGallery = () => {
                 for (var i = 0; i < resp.data.photos.length; i++) {
                   var image_name = resp.data.photos[i]
                   var query_path = base_url + "/photos/?fname=" + image_name;
+                  console.log("Image: "+query_path);
                   new_images.push(query_path) 
                 }
                 setImages(new_images);
