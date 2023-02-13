@@ -16,17 +16,16 @@ const PhotoGallery = () => {
           setIsInitialRender(false);
           var new_images = [] 
           var host = process.env.REACT_APP_SERVER_URL
-          // var port = process.env.REACT_APP_SERVER_PORT
-          var base_url = "https://" + host;
+          var port = process.env.REACT_APP_SERVER_PORT
+          var version = "v3";
+          var base_url = "http://" + host+":"+port + "/" + version;
           console.log("Base url: "+base_url);
-          axios.get(base_url+"/v2/photos/list",{
-                headers: {
-                'Access-Control-Allow-Origin': true,
-                },
-              }).then(resp => {
+          axios.get(base_url+"photos/list",{   
+               "Content-Type": "application/json",
+                }).then(resp => {
                 for (var i = 0; i < resp.data.photos.length; i++) {
                   var image_name = resp.data.photos[i]
-                  var query_path = base_url + "/v2/photos/?fname=" + image_name;
+                  var query_path = base_url + "/photos/?fname=" + image_name;
                   new_images.push(query_path) 
                 }
                 setImages(new_images);
