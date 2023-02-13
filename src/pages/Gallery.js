@@ -20,7 +20,7 @@ const PhotoGallery = () => {
           var version = "v3";
           var base_url = "http://" + host+":"+port + "/" + version;
           console.log("Base url: "+base_url);
-          axios.get(base_url+"photos/list",{   
+          axios.get(base_url+"/photos/list",{   
                "Content-Type": "application/json",
                 }).then(resp => {
                 for (var i = 0; i < resp.data.photos.length; i++) {
