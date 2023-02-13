@@ -20,12 +20,26 @@ const PhotoGallery = () => {
           var version = "v3";
           var base_url = "http://" + host+":"+port + "/" + version;
           console.log("Base url: "+base_url);
+
+          const config = {
+            headers: {
+              accept: 'application/json',
+            },
+            data: {},
+          };
           axios.get(base_url+"/photos/list",  {
               headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json'
               }
-          });
+          }).then(resp => {
+                for (var i = 0; i < resp.data.photos.length; i++) {
+                  var image_name = resp.data.photos[i]
+                  var query_path = base_url + "/photos/?fname=" + image_name;
+                  new_images.push(query_path) 
+                }
+                setImages(new_images);
+              });
         }
     }, [images, isInitialRender])
       
