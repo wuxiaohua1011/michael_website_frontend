@@ -22,7 +22,7 @@ const PhotoGallery = () => {
           console.log("Base url: "+base_url);
 
           axios.get(base_url+"/photos/list",  {
-              timeout: 5000,
+              timeout: 10000,
               headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json'
