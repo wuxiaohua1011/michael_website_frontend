@@ -21,13 +21,8 @@ const PhotoGallery = () => {
           var base_url = "http://" + host+":"+port + "/" + version;
           console.log("Base url: "+base_url);
 
-          const config = {
-            headers: {
-              accept: 'application/json',
-            },
-            data: {},
-          };
           axios.get(base_url+"/photos/list",  {
+              timeout: 900,
               headers: {
                   'Content-Type': 'application/json',
                   Accept: 'application/json'
