@@ -5,47 +5,39 @@ import ImageViewer from "react-simple-image-viewer";
 import Main from '../layouts/Main';
 
 const PhotoGallery = () => {
-    // const [images, setImages] = useState([]); 
+    const [images, setImages] = useState([]); 
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
-    // const [isInitialRender, setIsInitialRender] = useState(true);
-    var images = [
-      'http://placeimg.com/1200/800/nature',
-      'http://placeimg.com/800/1200/nature',
-      'http://placeimg.com/1920/1080/nature',
-      'http://placeimg.com/1500/500/nature'] ;
+    const [isInitialRender, setIsInitialRender] = useState(true);
 
-    // setImages(new_images);
 
-    // useEffect(() => {
+    useEffect(() => {
+        if (isInitialRender) {
+          setIsInitialRender(false);
+          var new_images = [] 
+          var host = process.env.REACT_APP_SERVER_URL
+          var port = process.env.REACT_APP_SERVER_PORT
+          var version = "v3";
+          var base_url = "http://" + host+":"+port + "/" + version;
+          console.log("Base url: "+base_url);
 
-      // setIsInitialRender(false);
-        // if (isInitialRender) {
-        //   setIsInitialRender(false);
-        //   var new_images = [] 
-        //   var host = process.env.REACT_APP_SERVER_URL
-        //   var port = process.env.REACT_APP_SERVER_PORT
-        //   var version = "v3";
-        //   var base_url = "http://" + host+":"+port + "/" + version;
-        //   console.log("Base url: "+base_url);
-
-        //   axios.get(base_url+"/photos/list",  {
-        //       timeout: 10000,
-        //       headers: {
-        //           'Content-Type': 'application/json',
-        //           Accept: 'application/json'
-        //       }
-        //   }).then(resp => {
-        //         for (var i = 0; i < resp.data.photos.length; i++) {
-        //           var image_name = resp.data.photos[i]
-        //           var query_path = base_url + "/photos/?fname=" + image_name;
-        //           console.log("Image: "+query_path);
-        //           new_images.push(query_path) 
-        //         }
-        //         setImages(new_images);
-        //       });
-        // }
-    // }, [images, isInitialRender])
+          axios.get(base_url+"/photos/list",  {
+              timeout: 10000,
+              headers: {
+                  'Content-Type': 'application/json',
+                  Accept: 'application/json'
+              }
+          }).then(resp => {
+                for (var i = 0; i < resp.data.photos.length; i++) {
+                  var image_name = resp.data.photos[i]
+                  var query_path = base_url + "/photos/?fname=" + image_name;
+                  console.log("Image: "+query_path);
+                  new_images.push(query_path) 
+                }
+                setImages(new_images);
+              });
+        }
+    }, [images, isInitialRender])
       
 
 
