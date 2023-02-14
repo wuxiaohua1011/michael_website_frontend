@@ -1,82 +1,29 @@
 import axios from 'axios';
 import React, {useState, useCallback, useEffect} from 'react';
-import ImageViewer from "react-simple-image-viewer";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
+var Carousel = require('react-responsive-carousel').Carousel;
 
 import Main from '../layouts/Main';
 
 const PhotoGallery = () => {
-    const [images, setImages] = useState([]); 
-    const [currentImage, setCurrentImage] = useState(0);
-    const [isViewerOpen, setIsViewerOpen] = useState(false);
-    const [isInitialRender, setIsInitialRender] = useState(true);
-
-
-    useEffect(() => {
-        if (isInitialRender) {
-          setIsInitialRender(false);
-          var new_images = [] 
-          var host = process.env.REACT_APP_SERVER_URL
-          var port = process.env.REACT_APP_SERVER_PORT
-          var version = "v3";
-          var base_url = "http://" + host+":"+port + "/" + version;
-          console.log("Base url: "+base_url);
-
-          axios.get(base_url+"/photos/list",  {
-              timeout: 10000,
-              headers: {
-                  'Content-Type': 'application/json',
-                  Accept: 'application/json'
-              }
-          }).then(resp => {
-                for (var i = 0; i < resp.data.photos.length; i++) {
-                  var image_name = resp.data.photos[i]
-                  var query_path = base_url + "/photos/?fname=" + image_name;
-                  console.log("Image: "+query_path);
-                  new_images.push(query_path) 
-                }
-                setImages(new_images);
-              });
-        }
-    }, [images, isInitialRender])
-      
-
-
-    const openImageViewer = useCallback((index) => {
-        setCurrentImage(index);
-        setIsViewerOpen(true);
-    }, []);
-
-    const closeImageViewer = () => {
-        setCurrentImage(0);
-        setIsViewerOpen(false);
-    };
-
-    
+    var images = ["https://www.publicdomainpictures.net/pictures/30000/velka/cactus-sunrise-13464458423Df.jpg",
+    "https://as2.ftcdn.net/jpg/03/21/57/91/220_F_321579179_jgVJjgwGLwalzcQMVPYLV2OXkYjNvDlU.jpg",
+    "https://drive.google.com/uc?export=view&id=171ngy9afALLt3qgcX_rVOmR7WvjuLP49"
+  ];
     return (
-      <div>
-          {images.map((src, index) => (
-            <img
-              src={src}
-              onClick={() => openImageViewer(index)}
-              width="300"
-              key={index}
-              style={{ margin: "2px" }}
-              alt=""
-            />
-          ))}
-        {isViewerOpen && (
-          <ImageViewer
-            src={images}
-            currentIndex={currentImage}
-            onClose={closeImageViewer}
-            disableScroll={false}
-            backgroundStyle={{
-              backgroundColor: "rgba(0,0,0,0.9)"
-            }}
-            closeOnClickOutside={true}
-          />
-        )}
-    </div>
+      <div>      
+         <Carousel>
+            {images.map((image_name) => 
+              <div key={image_name}>
+                <img src={image_name}/>
+                <p className="legend">{image_name}</p>
+              </div>
+              )
+            }
+            </Carousel>
+      </div>
+
     );
 }
 
