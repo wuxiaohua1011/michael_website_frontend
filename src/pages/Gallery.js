@@ -19,6 +19,7 @@ const PhotoGallery = () => {
         'http://placeimg.com/1500/500/nature'] ;
 
       setImages(new_images);
+      setIsInitialRender(false);
         // if (isInitialRender) {
         //   setIsInitialRender(false);
         //   var new_images = [] 
