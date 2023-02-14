@@ -8,7 +8,7 @@ const PhotoGallery = () => {
     // const [images, setImages] = useState([]); 
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
-    const [isInitialRender, setIsInitialRender] = useState(true);
+    // const [isInitialRender, setIsInitialRender] = useState(true);
     var images = [
       'http://placeimg.com/1200/800/nature',
       'http://placeimg.com/800/1200/nature',
