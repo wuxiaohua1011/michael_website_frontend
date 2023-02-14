@@ -5,17 +5,17 @@ import ImageViewer from "react-simple-image-viewer";
 import Main from '../layouts/Main';
 
 const PhotoGallery = () => {
-    const [images, setImages] = useState([]); 
+    // const [images, setImages] = useState([]); 
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [isInitialRender, setIsInitialRender] = useState(true);
-    var new_images = [
+    var images = [
       'http://placeimg.com/1200/800/nature',
       'http://placeimg.com/800/1200/nature',
       'http://placeimg.com/1920/1080/nature',
       'http://placeimg.com/1500/500/nature'] ;
 
-    setImages(new_images);
+    // setImages(new_images);
 
     // useEffect(() => {
 
