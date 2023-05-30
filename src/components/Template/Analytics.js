@@ -14,7 +14,12 @@ const Analytics = () => {
 
   useEffect(() => {
     if (NODE_ENV === 'production') {
+      try {
         ReactGA.initialize(REACT_APP_GA_TRACKING_ID);
+      } catch
+      {
+        console.log("Unable to start");
+      }
     }
   }, [pathname]);
 
