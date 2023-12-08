@@ -20,10 +20,6 @@ const routes = [
     label: 'Gallery',
     path: '/gallery'
   },
-  {
-    label: 'login',
-    path: '/login',
-  },
 ];
 
 export default routes;

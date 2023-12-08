@@ -1,6 +1,14 @@
 // TODO Add a couple lines about each project
 const data = [
   {
+    title: 'ROAR GoKart',
+    image: '/images/projects/roar-gokart.jpeg',
+    link: 'https://n36411s2sqp.larksuite.com/wiki/wikusXuJM7UbqI4X6v4FG6Voobd',
+    date: '2022',
+    desc:
+      'Self driving GoKart from scratch! Assembled a highly motivated and skilled team to build a multi-mission capable self driving gokart, lowering the bar for students to learn about autonomous driving.',
+  },
+  {
     title: 'Robot Open Autonomous Racing',
     image: '/images/projects/roar.jpg',
     link: 'https://roar.berkeley.edu/',

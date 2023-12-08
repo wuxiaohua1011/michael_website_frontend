@@ -1,25 +1,22 @@
 const positions = [
   {
+    company: 'Nimbus Nova',
+    position: 'CEO & Co-Founder',
+    link: 'https://www.nimbus-nova.com/',
+    points: [
+      'Just trying out a series of things and see what sticks',
+    ],
+  },
+  {
     company: 'TikTok',
     position: 'Software Engineer',
     link: 'http://tiktok.com/',
     daterange: 'July 2022 - Present',
     points: [
-      'Mobile engineer in the Privacy and Security team',
-      'just started :)',
+      'Mobile Engineer delivering high impact features such as STEM Feed, Age Gate, Parental Control, Kids Mode, and more',
+      'Backend engineer working on Tiktok Data Portability on compliance with GDPR, DMA, and other regulations'
     ],
   },
-  {
-    company: 'Entrepreneurs@Berkeley',
-    position: 'Founder & Board Member',
-    link: 'https://entrepreneurs.berkeley.edu/',
-    daterange: 'Sep 2018 - May 2021',
-    points: [
-      'Started E@B to provide undergraduate a safe and collaborative environment outside of class to work together',
-      'Grew a management team of 4 to 20 in 2 years and hosted a class size of 30 people every semester',
-    ],
-  },
-
   {
     company: 'Intelligent Racing Inc',
     position: 'Software Engineer Contractor',
@@ -73,6 +70,16 @@ const positions = [
     points: [
       'Laparoscopic Bipolar Forceps Positioning in Stereo Video for Robotic Surgery Training.',
       'Object tracking and depth information sensing from stereo frames using OpenCV and built DIY stereo Camera for testing',
+    ],
+  },
+    {
+    company: 'Entrepreneurs@Berkeley',
+    position: 'Founder & Board Member',
+    link: 'https://entrepreneurs.berkeley.edu/',
+    daterange: 'Sep 2018 - May 2021',
+    points: [
+      'Started E@B to provide undergraduate a safe and collaborative environment outside of class to work together',
+      'Grew a management team of 4 to 20 in 2 years and hosted a class size of 30 people every semester',
     ],
   },
 
